@@ -1,449 +1,603 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBAL HI-TECH FILMS GROUP | 环球高新膜业集团 - 全球顶级汽车膜智造基地</title>
+    <!-- 🔍 第1处修改：网页标题（SEO最重要） -->
+    <title>Pinnacle PPF | Premium Paint Protection Film Manufacturer & Supplier China</title>
+    <meta name="description" content="Leading PPF manufacturer in China. Supply TPU paint protection film, color change wraps, window tint, vinyl decals. OEM/ODM for automotive brands. ISO Certified Factory. Get quote now!">
+    <meta name="keywords" content="PPF manufacturer, TPU film factory, paint protection film China, car wrap supplier, automotive vinyl manufacturer, window film factory">
+    <meta name="author" content="Pinnacle PPF">
+    <meta name="robots" content="index, follow">
+    
+    <!-- 社交媒体分享优化 -->
+    <meta property="og:title" content="Pinnacle PPF - Professional Automotive Film Manufacturer">
+    <meta property="og:description" content="Premium PPF, Color Change Films, Window Tints. ISO 9001 Certified. Global Shipping. OEM/ODM Welcome.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200">
+    <meta property="og:url" content="https://pinnacleppf.top">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Analytics 4 (保留此代码，以后填入GA ID即可) -->
+    <script async src="https://www.googletagManager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID'); // 以后在这里替换为您的GA ID
+    </script>
+    
+    <!-- 结构化数据（让Google显示公司信息） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pinnacle PPF",
+      "url": "https://pinnacleppf.top",
+      "logo": "https://pinnacleppf.top/logo.png",
+      "description": "Professional manufacturer of Paint Protection Film, Color Change Wraps, and Window Films",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Sales",
+        "availableLanguage": ["English", "Chinese"]
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        brand: { gold: '#D4AF37', dark: '#0a0a0a', gray: '#1a1a1a' }
+                    },
                     fontFamily: {
                         sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
-                    },
-                    colors: {
-                        'luxury': {
-                            900: '#0a0a0f',
-                            800: '#151520',
-                            700: '#1f1f2e',
-                            gold: '#d4af37',
-                            blue: '#0066cc',
-                            cyan: '#00d4ff',
-                            red: '#c8102e'
-                        }
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                        'hero-pattern': "linear-gradient(to bottom, rgba(10,10,15,0.3), rgba(10,10,15,0.9)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop')",
-                        'carbon-fiber': "repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 2px, #151515 2px, #151515 4px)"
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            background-color: #0a0a0f;
-            color: #ffffff;
-            font-family: 'Inter', 'Noto Sans SC', sans-serif;
-            overflow-x: hidden;
-        }
+        body { background-color: #0a0a0a; color: white; overflow-x: hidden; }
+        .luxury-text { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .gold-gradient { background: linear-gradient(135deg, #D4AF37, #F4E5C2, #D4AF37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hover-lift { transition: transform 0.3s, box-shadow 0.3s; }
+        .hover-lift:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(212,175,55,0.2); }
         
-        .luxury-text {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 0.05em;
-        }
+        /* 加载动画 */
+        #loader { position: fixed; inset: 0; background: #0a0a0a; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s; }
+        .spinner { width: 60px; height: 60px; border: 3px solid rgba(212,175,55,0.3); border-top-color: #D4AF37; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
         
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
+        /* WhatsApp浮动按钮动画 */
+        @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .bounce-anim { animation: bounce-slow 2s infinite; }
         
-        .gold-gradient {
-            background: linear-gradient(135deg, #d4af37 0%, #f4e5c2 50%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hover-lift {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
-        }
-        
-        .shimmer {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .shimmer::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 200%; }
-        }
-        
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 30s linear infinite;
-        }
-        
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        .lang-switch {
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .lang-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 10px;
-            background: rgba(21, 21, 32, 0.95);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 10px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            min-width: 150px;
-        }
-        
-        .lang-switch:hover .lang-dropdown {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, #d4af37, transparent);
-            transform: translateX(-50%);
-        }
-        
-        .world-map-dot {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #00d4ff;
-            border-radius: 50%;
-            box-shadow: 0 0 20px #00d4ff;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-        }
-        
-        .product-card {
-            background: linear-gradient(145deg, #151520, #0f0f17);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.5s ease;
-        }
-        
-        .product-card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
-        
-        .stats-counter {
-            font-variant-numeric: tabular-nums;
-        }
+        /* 语言切换 */
+        .lang-active { color: #D4AF37; font-weight: bold; }
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
     </style>
 </head>
-<body class="antialiased bg-luxury-900">
+<body class="antialiased">
 
-    <!-- Top Bar -->
-    <div class="bg-luxury-800 border-b border-white/5 text-xs py-2 hidden md:block">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex gap-6 text-gray-400">
-                <span><i class="fas fa-phone-alt mr-2 text-luxury-gold"></i>+86 757-8888-9999</span>
-                <span><i class="fas fa-envelope mr-2 text-luxury-gold"></i>global@hitechfilms.com</span>
-                <span><i class="fas fa-map-marker-alt mr-2 text-luxury-gold"></i>Global Headquarters: Foshan, China</span>
+    <!-- 加载动画 -->
+    <div id="loader">
+        <div class="spinner mb-6"></div>
+        <div class="text-2xl luxury-text tracking-[0.3em] text-brand-gold">PINNACLE</div>
+        <div class="text-sm text-gray-500 mt-2">Premium Protection Films</div>
+    </div>
+
+    <!-- 顶部信息栏 -->
+    <div class="bg-neutral-900 border-b border-white/10 text-xs py-2 hidden md:block">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center text-gray-400">
+            <div class="flex gap-6">
+                <span><i class="fas fa-phone-alt mr-2 text-brand-gold"></i>+86 757-8888-9999</span>
+                <span><i class="fas fa-envelope mr-2 text-brand-gold"></i>sales@pinnacleppf.top</span>
             </div>
-            <div class="flex gap-4 text-gray-400">
-                <span class="hover:text-white cursor-pointer">Investor Relations</span>
-                <span class="hover:text-white cursor-pointer">Careers</span>
-                <span class="hover:text-white cursor-pointer">News Center</span>
+            <div class="flex gap-4">
+                <button onclick="switchLang('en')" class="hover:text-brand-gold transition-colors lang-btn" data-lang="en">EN</button>
+                <span>|</span>
+                <button onclick="switchLang('zh')" class="hover:text-brand-gold transition-colors lang-btn" data-lang="zh">中文</button>
             </div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-luxury-900/90 backdrop-blur-xl border-b border-white/10 transition-all duration-300" id="navbar">
+    <!-- 主导航 -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 transition-all" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-gradient-to-br from-luxury-gold to-yellow-600 rounded-lg flex items-center justify-center shadow-lg shadow-yellow-900/50">
-                    <span class="text-luxury-900 font-bold text-2xl luxury-text">G</span>
-                </div>
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-yellow-600 to-yellow-400 rounded-lg flex items-center justify-center font-bold text-black text-2xl luxury-text shadow-lg">P</div>
                 <div>
-                    <div class="text-2xl font-bold tracking-wider luxury-text text-white">GLOBAL HI-TECH</div>
-                    <div class="text-[10px] text-luxury-gold tracking-[0.3em] uppercase">Films Group Corporation</div>
+                    <div class="text-2xl font-bold tracking-wider luxury-text">PINNACLE</div>
+                    <div class="text-[10px] text-brand-gold tracking-widest">PROTECTION FILMS</div>
                 </div>
             </div>
 
             <div class="hidden lg:flex gap-8 text-sm font-medium text-gray-300">
-                <a href="#about" class="hover:text-luxury-gold transition-colors">About Us</a>
-                <a href="#products" class="hover:text-luxury-gold transition-colors">Products</a>
-                <a href="#technology" class="hover:text-luxury-gold transition-colors">Technology</a>
-                <a href="#global" class="hover:text-luxury-gold transition-colors">Global Presence</a>
-                <a href="#sustainability" class="hover:text-luxury-gold transition-colors">Sustainability</a>
-                <a href="#contact" class="hover:text-luxury-gold transition-colors">Contact</a>
+                <a href="#about" class="hover:text-brand-gold transition-colors lang-en">About</a>
+                <a href="#about" class="hover:text-brand-gold transition-colors lang-zh hidden">关于我们</a>
+                
+                <a href="#products" class="hover:text-brand-gold transition-colors lang-en">Products</a>
+                <a href="#products" class="hover:text-brand-gold transition-colors lang-zh hidden">产品中心</a>
+                
+                <a href="#technology" class="hover:text-brand-gold transition-colors lang-en">Technology</a>
+                <a href="#technology" class="hover:text-brand-gold transition-colors lang-zh hidden">核心技术</a>
+                
+                <a href="#global" class="hover:text-brand-gold transition-colors lang-en">Global</a>
+                <a href="#global" class="hover:text-brand-gold transition-colors lang-zh hidden">全球布局</a>
+                
+                <a href="#contact" class="hover:text-brand-gold transition-colors lang-en">Contact</a>
+                <a href="#contact" class="hover:text-brand-gold transition-colors lang-zh hidden">联系我们</a>
             </div>
 
-            <div class="flex items-center gap-4">
-                <div class="lang-switch relative">
-                    <button class="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:border-luxury-gold transition-colors">
-                        <i class="fas fa-globe"></i>
-                        <span id="current-lang">EN / 中文</span>
-                    </button>
-                    <div class="lang-dropdown">
-                        <button onclick="switchLang('en')" class="block w-full text-left px-4 py-2 hover:bg-white/10 rounded text-sm">English</button>
-                        <button onclick="switchLang('zh')" class="block w-full text-left px-4 py-2 hover:bg-white/10 rounded text-sm">简体中文</button>
-                        <button onclick="switchLang('jp')" class="block w-full text-left px-4 py-2 hover:bg-white/10 rounded text-sm">日本語</button>
-                    </div>
-                </div>
-                <button class="px-6 py-2 bg-luxury-gold text-luxury-900 rounded-full font-bold hover:shadow-lg hover:shadow-yellow-500/30 transition-all">
-                    Get Quote
-                </button>
-            </div>
+            <button class="px-6 py-2 bg-brand-gold text-black rounded-full font-bold hover:shadow-lg hover:shadow-yellow-500/30 transition-all text-sm">
+                <span class="lang-en">Get Quote</span>
+                <span class="lang-zh hidden">获取报价</span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-pattern bg-cover bg-center bg-fixed">
-        <div class="absolute inset-0 bg-gradient-to-b from-luxury-900/50 via-transparent to-luxury-900"></div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20">
-            <div class="text-center max-w-5xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-panel text-luxury-gold text-sm font-medium mb-8 shimmer">
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1920&q=80" class="w-full h-full object-cover opacity-40" alt="PPF Background">
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-brand-gold text-sm font-medium">
                     <i class="fas fa-certificate"></i>
-                    <span class="lang-en">NYSE Listed | Fortune Global 500 Supplier</span>
-                    <span class="lang-zh hidden">纽约证券交易所上市 | 世界500强供应商</span>
+                    <span class="lang-en">ISO 9001 Certified | Global Exporter</span>
+                    <span class="lang-zh hidden">ISO 9001认证 | 全球出口商</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 luxury-text">
-                    <span class="lang-en">Redefining Automotive<br>Surface Protection</span>
-                    <span class="lang-zh hidden">重新定义汽车<br>表面保护科技</span>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight luxury-text">
+                    <span class="lang-en">Global Leader in<br><span class="gold-gradient">Surface Protection</span></span>
+                    <span class="lang-zh hidden">全球领先的<br><span class="gold-gradient">表面保护专家</span></span>
                 </h1>
                 
-                <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-12 font-light">
-                    <span class="lang-en">World's leading manufacturer of PPF, window films, and automotive styling products. 25 years of excellence serving 80+ countries.</span>
-                    <span class="lang-zh hidden">全球领先的隐形车衣、窗膜及汽车外饰产品制造商。25年卓越品质，服务80+国家。</span>
+                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                    <span class="lang-en">Premium manufacturer of PPF, color change wraps, window films, and automotive styling products. Serving 500+ brands across 60 countries.</span>
+                    <span class="lang-zh hidden">专业的PPF、改色膜、窗膜及汽车外饰产品制造商。服务全球60个国家的500多个品牌。</span>
                 </p>
 
-                <div class="flex flex-wrap justify-center gap-4 mb-16">
-                    <button class="px-8 py-4 bg-luxury-gold text-luxury-900 font-bold rounded-full hover:shadow-xl hover:scale-105 transition-all flex items-center gap-2">
-                        <span class="lang-en">Explore Solutions</span>
-                        <span class="lang-zh hidden">探索解决方案</span>
-                        <i class="fas fa-arrow-right"></i>
+                <div class="flex flex-wrap gap-4">
+                    <button class="px-8 py-4 bg-brand-gold text-black font-bold rounded-full hover:shadow-xl transition-all flex items-center gap-2">
+                        <span class="lang-en">Download Catalog</span>
+                        <span class="lang-zh hidden">下载产品目录</span>
+                        <i class="fas fa-download"></i>
                     </button>
-                    <button class="px-8 py-4 glass-panel rounded-full hover:bg-white/10 transition-all flex items-center gap-2">
-                        <i class="fas fa-play-circle"></i>
-                        <span class="lang-en">Watch Corporate Film</span>
-                        <span class="lang-zh hidden">观看企业宣传片</span>
+                    <button class="px-8 py-4 glass rounded-full hover:bg-white/10 transition-all flex items-center gap-2">
+                        <i class="fas fa-play-circle text-brand-gold"></i>
+                        <span class="lang-en">Watch Video</span>
+                        <span class="lang-zh hidden">观看视频</span>
                     </button>
                 </div>
 
-                <!-- Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-12 border-t border-white/10">
+                <div class="grid grid-cols-4 gap-6 pt-8 border-t border-white/10">
                     <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-bold text-luxury-gold stats-counter" data-target="25">0</div>
-                        <div class="text-sm text-gray-500 mt-2 uppercase tracking-wider">Years Experience</div>
+                        <div class="text-3xl font-bold text-brand-gold">15+</div>
+                        <div class="text-xs text-gray-500 mt-1 lang-en">Years</div>
+                        <div class="text-xs text-gray-500 mt-1 lang-zh hidden">年经验</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-bold text-luxury-gold stats-counter" data-target="80">0</div>
-                        <div class="text-sm text-gray-500 mt-2 uppercase tracking-wider">Countries</div>
+                        <div class="text-3xl font-bold text-brand-gold">60+</div>
+                        <div class="text-xs text-gray-500 mt-1 lang-en">Countries</div>
+                        <div class="text-xs text-gray-500 mt-1 lang-zh hidden">国家</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-bold text-luxury-gold stats-counter" data-target="500">0</div>
-                        <div class="text-sm text-gray-500 mt-2 uppercase tracking-wider">+ Partners</div>
+                        <div class="text-3xl font-bold text-brand-gold">500+</div>
+                        <div class="text-xs text-gray-500 mt-1 lang-en">Partners</div>
+                        <div class="text-xs text-gray-500 mt-1 lang-zh hidden">合作伙伴</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-bold text-luxury-gold">98<span class="text-2xl">%</span></div>
-                        <div class="text-sm text-gray-500 mt-2 uppercase tracking-wider">Satisfaction</div>
+                        <div class="text-3xl font-bold text-brand-gold">50M+</div>
+                        <div class="text-xs text-gray-500 mt-1 lang-en">Sqm/Year</div>
+                        <div class="text-xs text-gray-500 mt-1 lang-zh hidden">年产平米</div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-                <div class="w-1 h-2 bg-luxury-gold rounded-full"></div>
             </div>
         </div>
     </section>
 
-    <!-- Group Introduction -->
-    <section id="about" class="py-24 bg-luxury-800 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-luxury-gold/5 to-transparent"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-neutral-900">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="text-luxury-gold text-sm font-bold tracking-widest uppercase mb-4">Corporate Profile</div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 luxury-text">
-                        <span class="lang-en">Global Hi-Tech Films Group</span>
-                        <span class="lang-zh hidden">环球高新膜业集团</span>
+                <div class="space-y-6">
+                    <div class="text-brand-gold text-sm font-bold tracking-widest uppercase lang-en">Corporate Profile</div>
+                    <div class="text-brand-gold text-sm font-bold tracking-widest uppercase lang-zh hidden">企业简介</div>
+                    
+                    <h2 class="text-4xl md:text-5xl font-bold luxury-text">
+                        <span class="lang-en">Excellence in Manufacturing</span>
+                        <span class="lang-zh hidden">卓越的制造能力</span>
                     </h2>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                        <span class="lang-en">Founded in 1999 in Foshan, China, Global Hi-Tech Films Group (GHFG) has evolved into a multinational corporation with operations spanning 12 countries. We are the preferred OEM partner for Mercedes-Benz, BMW, Audi, and Tesla's official accessory programs.</span>
-                        <span class="lang-zh hidden">创立于1999年佛山，环球高新膜业集团已发展成为业务遍及12个国家的跨国企业。我们是奔驰、宝马、奥迪及特斯拉官方配件项目的首选OEM合作伙伴。</span>
+                    
+                    <p class="text-gray-400 text-lg leading-relaxed lang-en">
+                        Pinnacle PPF Group operates 3 state-of-the-art manufacturing facilities covering 50,000 square meters. With 16 precision coating lines imported from Germany and Japan, we deliver premium quality films trusted by automotive brands worldwide.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-8">
-                        <span class="lang-en">With 6 manufacturing facilities, 3 R&D centers, and over 3,000 employees worldwide, we produce 50 million square meters of premium films annually.</span>
-                        <span class="lang-zh hidden">拥有6大生产基地、3个全球研发中心、3000余名员工，年产高端膜材5000万平方米。</span>
+                    <p class="text-gray-400 text-lg leading-relaxed lang-zh hidden">
+                        Pinnacle PPF集团运营着3个最先进的制造基地，占地50,000平方米。拥有16条从德国和日本进口的精密涂布线，我们为全球汽车品牌提供值得信赖的优质膜材。
                     </p>
 
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-luxury-gold/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-industry text-luxury-gold text-xl"></i>
-                            </div>
-                            <div>
-                                <div class="font-bold text-lg">6</div>
-                                <div class="text-sm text-gray-500">Manufacturing Bases</div>
-                            </div>
+                    <div class="grid grid-cols-2 gap-6 pt-6">
+                        <div class="glass p-4 rounded-xl border-l-4 border-brand-gold">
+                            <div class="text-2xl font-bold text-brand-gold mb-1">99.8%</div>
+                            <div class="text-sm text-gray-400 lang-en">Quality Rate</div>
+                            <div class="text-sm text-gray-400 lang-zh hidden">合格率</div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-luxury-gold/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-flask text-luxury-gold text-xl"></i>
-                            </div>
-                            <div>
-                                <div class="font-bold text-lg">3</div>
-                                <div class="text-sm text-gray-500">R&D Centers</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-luxury-gold/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-certificate text-luxury-gold text-xl"></i>
-                            </div>
-                            <div>
-                                <div class="font-bold text-lg">200+</div>
-                                <div class="text-sm text-gray-500">Patents</div>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-luxury-gold/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-users text-luxury-gold text-xl"></i>
-                            </div>
-                            <div>
-                                <div class="font-bold text-lg">3,000+</div>
-                                <div class="text-sm text-gray-500">Employees</div>
-                            </div>
+                        <div class="glass p-4 rounded-xl border-l-4 border-brand-gold">
+                            <div class="text-2xl font-bold text-brand-gold mb-1">48h</div>
+                            <div class="text-sm text-gray-400 lang-en">Sample Lead Time</div>
+                            <div class="text-sm text-gray-400 lang-zh hidden">样品交期</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="https://images.unsplash.com/photo-1565514020176-dbf2277fa8d2?q=80&w=600&auto=format&fit=crop" class="rounded-2xl shadow-2xl w-full h-64 object-cover transform translate-y-8" alt="Factory">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop" class="rounded-2xl shadow-2xl w-full h-64 object-cover" alt="R&D">
-                        <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?q=80&w=600&auto=format&fit=crop" class="rounded-2xl shadow-2xl w-full h-64 object-cover transform translate-y-8" alt="Production">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop" class="rounded-2xl shadow-2xl w-full h-64 object-cover" alt="Office">
-                    </div>
-                    
-                    <!-- Floating Badge -->
-                    <div class="absolute -bottom-6 -left-6 glass-panel p-6 rounded-2xl shadow-2xl max-w-xs">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i class="fas fa-award text-luxury-gold text-2xl"></i>
-                            <div class="font-bold">IATF 16949:2016</div>
-                        </div>
-                        <div class="text-sm text-gray-400">Automotive Quality Management System Certified</div>
-                    </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1565514020176-dbf2277fa8d2?w=600&q=80" class="rounded-2xl shadow-2xl w-full h-64 object-cover transform translate-y-8" alt="Factory">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" class="rounded-2xl shadow-2xl w-full h-64 object-cover" alt="Production">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Product Matrix -->
-    <section id="products" class="py-24 bg-luxury-900 relative">
+    <!-- Products Grid -->
+    <section id="products" class="py-24 bg-black">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <div class="text-luxury-gold text-sm font-bold tracking-widest uppercase mb-4">Product Portfolio</div>
-                <h2 class="text-4xl md:text-5xl font-bold luxury-text mb-4">Comprehensive Solutions</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">From protection to personalization, we offer a complete range of automotive surface solutions</p>
+                <h2 class="text-4xl md:text-5xl font-bold luxury-text mb-4">
+                    <span class="lang-en">Product Portfolio</span>
+                    <span class="lang-zh hidden">产品系列</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto lang-en">Comprehensive solutions from protection to personalization</p>
+                <p class="text-gray-400 max-w-2xl mx-auto lang-zh hidden">从保护到个性化的全方位解决方案</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- PPF -->
-                <div class="product-card rounded-2xl overflow-hidden group">
+                <div class="glass rounded-2xl overflow-hidden group hover-lift cursor-pointer">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="PPF">
-                        <div class="absolute inset-0 bg-gradient-to-t from-luxury-900 via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute top-4 right-4 bg-luxury-gold text-luxury-900 px-3 py-1 rounded-full text-xs font-bold">FLAGSHIP</div>
-                        <div class="absolute bottom-4 left-4">
-                            <h3 class="text-2xl font-bold luxury-text">Paint Protection Film</h3>
-                            <p class="text-sm text-gray-400">TPU Series</p>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="PPF">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-brand-gold text-black px-3 py-1 rounded-full text-xs font-bold">HOT</div>
                     </div>
                     <div class="p-6">
-                        <ul class="space-y-3 text-sm text-gray-400 mb-6">
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold"></i> Self-healing top coat technology</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold"></i> 10-year warranty program</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold"></i> Gloss / Matte / Black finishes</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-luxury-gold"></i> 6.5mil - 12mil thickness range</li>
+                        <h3 class="text-2xl font-bold mb-2 luxury-text">Paint Protection Film</h3>
+                        <p class="text-gray-400 text-sm mb-4 lang-en">TPU based self-healing clear bra with 10-year warranty</p>
+                        <p class="text-gray-400 text-sm mb-4 lang-zh hidden">TPU基材自修复透明车衣，10年质保</p>
+                        <ul class="space-y-2 text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> 6.5mil - 12mil thickness</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> Self-healing technology</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> Hydrophobic coating</li>
                         </ul>
-                        <div class="flex gap-2">
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Pro Series</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Master Series</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Stealth</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Window Film -->
-                <div class="product-card rounded-2xl overflow-hidden group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Window Film">
-                        <div class="absolute inset-0 bg-gradient-to-t from-luxury-900 via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <h3 class="text-2xl font-bold luxury-text text-cyan-400">Window Films</h3>
-                            <p class="text-sm text-gray-400">Ceramic & Carbon Series</p>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <ul class="space-y-3 text-sm text-gray-400 mb-6">
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> 99% UV rejection</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> IR heat rejection up to 95%</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Signal-friendly (non-metal)</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> VLT: 5% - 70% options</li>
-                        </ul>
-                        <div class="flex gap-2">
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Nano Ceramic</span>
-                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs">Carbon Black</span>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Color Change -->
-                <div class="product-card rounded-2xl overflow-hidden group">
+                <div class="glass rounded-2xl overflow-hidden group hover-lift cursor-pointer">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?q
+                        <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Color Change">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 luxury-text text-purple-400">Color Change Wraps</h3>
+                        <p class="text-gray-400 text-sm mb-4 lang-en">400+ colors, PET liner, super matte & metallic finishes</p>
+                        <p class="text-gray-400 text-sm mb-4 lang-zh hidden">400多种颜色，PET底纸，超哑光和金属质感</p>
+                        <ul class="space-y-2 text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> 400+ color options</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> Air-release adhesive</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400"></i> 3-year durability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Window Film -->
+                <div class="glass rounded-2xl overflow-hidden group hover-lift cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Window Film">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 luxury-text text-cyan-400">Window Films</h3>
+                        <p class="text-gray-400 text-sm mb-4 lang-en">Nano ceramic IR rejection, UV protection, signal friendly</p>
+                        <p class="text-gray-400 text-sm mb-4 lang-zh hidden">纳米陶瓷隔热膜，防紫外线，不影响信号</p>
+                        <ul class="space-y-2 text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> 99% UV rejection</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> 95% IR heat reduction</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-cyan-400"></i> Signal friendly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Vinyl Decals -->
+                <div class="glass rounded-2xl overflow-hidden group hover-lift cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Decals">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 luxury-text text-orange-400">Vinyl Decals & Stripes</h3>
+                        <p class="text-gray-400 text-sm mb-4 lang-en">Racing stripes, custom graphics, commercial fleet wraps</p>
+                        <p class="text-gray-400 text-sm mb-4 lang-zh hidden">赛车拉花、定制图案、商业车队贴膜</p>
+                        <ul class="space-y-2 text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-orange-400"></i> Custom design service</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-orange-400"></i> Digital printing</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-orange-400"></i> Minimum 1 piece</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Special Films -->
+                <div class="glass rounded-2xl overflow-hidden group hover-lift cursor-pointer">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" alt="Special">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 luxury-text text-green-400">Specialty Films</h3>
+                        <p class="text-gray-400 text-sm mb-4 lang-en">Headlight tint, sunroof armor, interior protection</p>
+                        <p class="text-gray-400 text-sm mb-4 lang-zh hidden">大灯膜、天窗冰甲、内饰保护膜</p>
+                        <ul class="space-y-2 text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Headlight PPF (smoke/clear)</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Sunroof heat insulation</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-400"></i> Interior skin</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- OEM Service -->
+                <div class="glass rounded-2xl overflow-hidden group hover-lift cursor-pointer border-2 border-brand-gold/30">
+                    <div class="relative h-64 overflow-hidden bg-gradient-to-br from-brand-gold/20 to-yellow-900/20 flex items-center justify-center">
+                        <i class="fas fa-industry text-6xl text-brand-gold opacity-50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 luxury-text text-brand-gold">OEM/ODM Service</h3>
+                        <p class="text-gray-400 text-sm mb-4 lang-en">Private label, custom formulations, packaging design</p>
+                        <p class="text-gray-400 text-sm mb-4 lang-zh hidden">贴牌代工、定制配方、包装设计</p>
+                        <button class="w-full py-3 bg-brand-gold text-black rounded-lg font-bold hover:shadow-lg transition-all">
+                            <span class="lang-en">Start Your Brand</span>
+                            <span class="lang-zh hidden">创建您的品牌</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section id="technology" class="py-24 bg-neutral-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold luxury-text mb-6">
+                        <span class="lang-en">Advanced Technology</span>
+                        <span class="lang-zh hidden">先进技术</span>
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-brand-gold/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-atom text-brand-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Nano-Coating Technology</h4>
+                                <p class="text-gray-400 text-sm">Self-healing at 60°C, hydrophobic surface, anti-contamination</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-brand-gold/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-shield-alt text-brand-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Precision Coating</h4>
+                                <p class="text-gray-400 text-sm">±0.5μm thickness tolerance, 99.8% clarity, no orange peel</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-brand-gold/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-recycle text-brand-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Eco-Friendly Process</h4>
+                                <p class="text-gray-400 text-sm">Solvent-free adhesive, recyclable PET liners, green manufacturing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" class="rounded-2xl shadow-2xl w-full" alt="Technology">
+                    <div class="absolute -bottom-6 -left-6 glass p-6 rounded-xl max-w-xs">
+                        <div class="text-brand-gold text-2xl font-bold mb-2">200+</div>
+                        <div class="text-sm text-gray-300">Patents & Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-black relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80" class="w-full h-full object-cover" alt="Contact Background">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/70"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6">
+            <div class="glass rounded-3xl p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold luxury-text mb-4">
+                        <span class="lang-en">Request a Quote</span>
+                        <span class="lang-zh hidden">获取报价</span>
+                    </h2>
+                    <p class="text-gray-400">
+                        <span class="lang-en">Get free samples and price list within 24 hours</span>
+                        <span class="lang-zh hidden">24小时内获取免费样品和报价单</span>
+                    </p>
+                </div>
+
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Your Name / 您的姓名" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-brand-gold focus:outline-none transition-colors text-white placeholder-gray-500">
+                        <input type="email" placeholder="Email / 邮箱" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-brand-gold focus:outline-none transition-colors text-white placeholder-gray-500">
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <input type="tel" placeholder="WhatsApp / Phone" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-brand-gold focus:outline-none transition-colors text-white placeholder-gray-500">
+                        <input type="text" placeholder="Company Name / 公司名称" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-brand-gold focus:outline-none transition-colors text-white placeholder-gray-500">
+                    </div>
+                    <select class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-brand-gold focus:outline-none transition-colors text-gray-300">
+                        <option>Interested Product / 感兴趣的产品</option>
+                        <option>PPF (Paint Protection Film)</option>
+                        <option>Color Change Wraps</option>
+                        <option>Window Films</option>
+                        <option>Vinyl Decals</option>
+                        <option>OEM/ODM Service</option>
+                    </select>
+                    <textarea rows="4" placeholder="Message / 留言" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-brand-gold focus:outline-none transition-colors text-white placeholder-gray-500"></textarea>
+                    
+                    <button type="submit" class="w-full py-4 bg-brand-gold text-black font-bold rounded-lg hover:shadow-xl hover:shadow-yellow-500/30 transition-all text-lg">
+                        <span class="lang-en">Send Message</span>
+                        <span class="lang-zh hidden">发送消息</span>
+                    </button>
+                </form>
+
+                <div class="mt-8 pt-8 border-t border-white/10 grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <i class="fas fa-map-marker-alt text-brand-gold text-xl mb-2"></i>
+                        <div class="text-sm text-gray-400">
+                            <!-- 📍 第3处修改：公司地址 -->
+                            Foshan, Guangdong, China<br>
+                            广东省佛山市南海区
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone text-brand-gold text-xl mb-2"></i>
+                        <div class="text-sm text-gray-400">+86 757-8888-9999</div>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope text-brand-gold text-xl mb-2"></i>
+                        <div class="text-sm text-gray-400">sales@pinnacleppf.top</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-brand-gold rounded flex items-center justify-center font-bold text-black">P</div>
+                        <span class="text-xl font-bold luxury-text">PINNACLE PPF</span>
+                    </div>
+                    <p class="text-gray-500 text-sm max-w-sm">
+                        Professional manufacturer of automotive protection films. ISO 9001 & IATF 16949 certified. Global shipping available.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-sm">Products</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Paint Protection Film</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Color Change Wraps</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Window Films</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Vinyl Decals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-sm">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Installation Guide</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Warranty Check</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Color Chart</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+                <div>© 2024 Pinnacle PPF. All rights reserved.</div>
+                <div class="flex gap-4">
+                    <span>ISO 9001 Certified</span>
+                    <span>IATF 16949</span>
+                    <span>SGS Verified</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 📱 第2处修改：WhatsApp浮动按钮（改成您的手机号） -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <a href="https://wa.me/8613143389227?text=Hello%20Pinnacle%20PPF,%20I%20am%20interested%20in%20your%20products" 
+           target="_blank"
+           class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform bounce-anim group relative">
+            <i class="fab fa-whatsapp text-2xl text-white"></i>
+            <span class="absolute right-16 bg-white text-black px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-medium shadow-lg">
+                Chat on WhatsApp
+            </span>
+        </a>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform opacity-0 transition-opacity duration-300" 
+                id="backToTop">
+            <i class="fas fa-arrow-up text-black"></i>
+        </button>
+    </div>
+
+    <script>
+        // 加载动画
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').remove();
+                }, 500);
+            }, 1000);
+        });
+
+        // 语言切换
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-en, .lang-zh').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.querySelectorAll('.lang-' + lang).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('lang-active');
+                if(btn.dataset.lang === lang) btn.classList.add('lang-active');
+            });
+        }
+
+        // 回到顶部按钮显示
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backToTop');
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 300) {
+                btn.classList.remove('opacity-0');
+                navbar.classList.add('shadow-lg');
+            } else {
+                btn.classList.add('opacity-0');
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // GSAP动画
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from(".glass", {
+                scrollTrigger: { trigger: ".glass", start: "top 80%" },
+                y: 50, opacity: 0, duration: 0.8, stagger: 0.2
+            });
+        }
+    </script>
+</body>
+</html>
