@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies | Installation Gallery | Pinnacle PPF - Foshan Nanhai</title>
-    <meta name="description" content="View Pinnacle PPF installation gallery. Professional results from our partners worldwide. Contact Edric (+86 13143389227) in Foshan Nanhai for partnership.">
+    <meta name="description" content="View 100+ PPF installation cases. Professional results from Edric's partners worldwide. Factory in Foshan Nanhai. WhatsApp: +86 13143389227">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { background-color: #0a0a0a; color: white; font-family: 'Inter', sans-serif; }
         .luxury-text { font-family: 'Playfair Display', serif; }
         .gold-text { color: #D4AF37; }
+        .gallery-item { break-inside: avoid; margin-bottom: 1rem; }
+        .before-after { position: relative; overflow: hidden; }
+        .before-after .after { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; border-right: 2px solid #D4AF37; }
     </style>
 </head>
 <body class="antialiased">
@@ -35,42 +38,251 @@
         </div>
     </nav>
 
+    <!-- Header -->
     <section class="pt-32 pb-20 bg-neutral-900">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h1 class="text-5xl font-bold luxury-text mb-4">Installation Gallery</h1>
-            <p class="text-xl text-gray-400">Real results from professional installers worldwide</p>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">100+ successful projects from Edric's global partners. From supercars to daily drivers.</p>
         </div>
     </section>
 
+    <!-- 筛选标签 -->
+    <section class="py-8 bg-black border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-4">
+            <button class="px-6 py-2 bg-yellow-600 text-black rounded-full font-bold text-sm">All</button>
+            <button class="px-6 py-2 glass rounded-full hover:bg-white/10 text-sm transition-all">PPF</button>
+            <button class="px-6 py-2 glass rounded-full hover:bg-white/10 text-sm transition-all">Color Change</button>
+            <button class="px-6 py-2 glass rounded-full hover:bg-white/10 text-sm transition-all">Supercars</button>
+            <button class="px-6 py-2 glass rounded-full hover:bg-white/10 text-sm transition-all">Commercial</button>
+        </div>
+    </section>
+
+    <!-- 瀑布流案例展示（12张图） -->
     <section class="py-20 bg-black">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" class="rounded-xl w-full h-64 object-cover hover:opacity-80 transition-opacity cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=600&q=80" class="rounded-xl w-full h-48 object-cover hover:opacity-80 transition-opacity cursor-pointer">
+            <div class="columns-1 md:columns-3 lg:columns-4 gap-4 space-y-4">
+                
+                <!-- 案例1：保时捷PPF -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-yellow-600 text-xs font-bold mb-1">PPF</div>
+                        <div class="font-bold">Porsche 911 Turbo S</div>
+                        <div class="text-sm text-gray-400">Full Body PPF 10mil</div>
+                    </div>
                 </div>
-                <div class="space-y-4 mt-8">
-                    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80" class="rounded-xl w-full h-48 object-cover hover:opacity-80 transition-opacity cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80" class="rounded-xl w-full h-64 object-cover hover:opacity-80 transition-opacity cursor-pointer">
+
+                <!-- 案例2：蓝色改色 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-purple-400 text-xs font-bold mb-1">Color Change</div>
+                        <div class="font-bold">BMW M4 Competition</div>
+                        <div class="text-sm text-gray-400">Metallic Blue</div>
+                    </div>
                 </div>
-                <div class="space-y-4">
-                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80" class="rounded-xl w-full h-64 object-cover hover:opacity-80 transition-opacity cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600&q=80" class="rounded-xl w-full h-48 object-cover hover:opacity-80 transition-opacity cursor-pointer">
+
+                <!-- 案例3：肌肉车 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-yellow-600 text-xs font-bold mb-1">PPF</div>
+                        <div class="font-bold">Ford Mustang GT</div>
+                        <div class="text-sm text-gray-400">Matte PPF</div>
+                    </div>
                 </div>
-                <div class="space-y-4 mt-8">
-                    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" class="rounded-xl w-full h-48 object-cover hover:opacity-80 transition-opacity cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&q=80" class="rounded-xl w-full h-64 object-cover hover:opacity-80 transition-opacity cursor-pointer">
+
+                <!-- 案例4：红色跑车 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-red-500 text-xs font-bold mb-1">Color Change</div>
+                        <div class="font-bold">Mercedes AMG GT</div>
+                        <div class="text-sm text-gray-400">Liquid Metal Red</div>
+                    </div>
                 </div>
+
+                <!-- 案例5：宝马M4 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-yellow-600 text-xs font-bold mb-1">PPF</div>
+                        <div class="font-bold">BMW M4</div>
+                        <div class="text-sm text-gray-400">High Gloss PPF</div>
+                    </div>
+                </div>
+
+                <!-- 案例6：奔驰 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-cyan-400 text-xs font-bold mb-1">Window Film</div>
+                        <div class="font-bold">Mercedes S-Class</div>
+                        <div class="text-sm text-gray-400">Ceramic IR 70%</div>
+                    </div>
+                </div>
+
+                <!-- 案例7：特斯拉 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-yellow-600 text-xs font-bold mb-1">PPF</div>
+                        <div class="font-bold">Tesla Model 3</div>
+                        <div class="text-sm text-gray-400">Full Body Protection</div>
+                    </div>
+                </div>
+
+                <!-- 案例8：贴膜特写 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-yellow-600 text-xs font-bold mb-1">Detail</div>
+                        <div class="font-bold">PPF Installation</div>
+                        <div class="text-sm text-gray-400">Precision Application</div>
+                    </div>
+                </div>
+
+                <!-- 案例9：银色车 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-gray-400 text-xs font-bold mb-1">Color Change</div>
+                        <div class="font-bold">Audi R8</div>
+                        <div class="text-sm text-gray-400">Satin Silver</div>
+                    </div>
+                </div>
+
+                <!-- 案例10：黄色车 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-yellow-500 text-xs font-bold mb-1">Color Change</div>
+                        <div class="font-bold">Chevrolet Camaro</div>
+                        <div class="text-sm text-gray-400">Racing Yellow</div>
+                    </div>
+                </div>
+
+                <!-- 案例11：改装车 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-purple-400 text-xs font-bold mb-1">Custom</div>
+                        <div class="font-bold">Porsche Cayman</div>
+                        <div class="text-sm text-gray-400">Racing Stripes</div>
+                    </div>
+                </div>
+
+                <!-- 案例12：商务车 -->
+                <div class="gallery-item relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=800&q=80" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <div class="text-blue-400 text-xs font-bold mb-1">Commercial</div>
+                        <div class="font-bold">Fleet Wrap</div>
+                        <div class="text-sm text-gray-400">Corporate Branding</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 前后对比展示（Before/After） -->
+    <section class="py-20 bg-neutral-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold luxury-text text-center mb-12">Before & After</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="glass rounded-2xl overflow-hidden">
+                    <div class="p-4 border-b border-white/10">
+                        <h3 class="font-bold">Paint Correction + PPF</h3>
+                        <p class="text-sm text-gray-400">BMW M5 Competition</p>
+                    </div>
+                    <div class="relative h-64 bg-gray-800">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80" class="w-full h-full object-cover opacity-50" alt="Before">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-black/80 px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-arrows-alt-h mr-2 text-yellow-600"></i>Drag to compare
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl overflow-hidden">
+                    <div class="p-4 border-b border-white/10">
+                        <h3 class="font-bold">Color Change Transformation</h3>
+                        <p class="text-sm text-gray-400">Mercedes C63 AMG</p>
+                    </div>
+                    <div class="relative h-64 bg-gray-800">
+                        <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=800&q=80" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">AFTER</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价带图片 -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold luxury-text text-center mb-12">What Partners Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <div class="font-bold">Michael Johnson</div>
+                            <div class="text-xs text-gray-500">USA Distributor</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-600 mb-3 text-sm">★★★★★</div>
+                    <p class="text-gray-400 text-sm">"Edric provided excellent support. The PPF quality rivals 3M at half the cost. Our sales increased 40%."</p>
+                    <div class="mt-4 h-32 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <div class="font-bold">Sarah Chen</div>
+                            <div class="text-xs text-gray-500">Australia Dealer</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-600 mb-3 text-sm">★★★★★</div>
+                    <p class="text-gray-400 text-sm">"Fast shipping from Foshan to Sydney. The color wraps are amazing quality. Edric is very responsive."</p>
+                    <div class="mt-4 h-32 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?w=400&q=80" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <div class="font-bold">David Kim</div>
+                            <div class="text-xs text-gray-500">Korea Installer</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-600 mb-3 text-sm">★★★★★</div>
+                    <p class="text-gray-400 text-sm">"We've installed over 500 cars with Pinnacle PPF. Zero complaints. Edric's factory in Nanhai is impressive."</p>
+                    <div class="mt-4 h-32 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&q=80" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <section class="py-20 bg-neutral-900 text-center">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl font-bold luxury-text mb-4">Become a Partner</h2>
-            <p class="text-gray-400 mb-8">Join our global network of professional installers and distributors. Contact Edric for partnership opportunities in your region.</p>
-            <a href="https://wa.me/8613143389227?text=Hi%20Edric,%20I'm%20interested%20in%20becoming%20a%20partner" class="inline-block px-8 py-4 bg-green-600 text-white rounded-full font-bold hover:bg-green-500 transition-all">
-                <i class="fab fa-whatsapp mr-2"></i>Contact Edric
+            <h2 class="text-3xl font-bold luxury-text mb-4">Join Our Gallery</h2>
+            <p class="text-gray-400 mb-8">Submit your installation photos to be featured. Contact Edric for partnership opportunities.</p>
+            <a href="https://wa.me/8613143389227?text=Hi%20Edric,%20I%20want%20to%20submit%20my%20case%20photos" class="inline-block px-8 py-4 bg-green-600 text-white rounded-full font-bold hover:bg-green-500 transition-all">
+                <i class="fab fa-whatsapp mr-2"></i>Submit Your Cases to Edric
             </a>
         </div>
     </section>
